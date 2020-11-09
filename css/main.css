@@ -1,0 +1,22 @@
+.board {
+    border: 1px solid;
+    height: 350px;
+    width: 370px;
+    display: flex;
+    flex-wrap: wrap; 
+  }
+  
+  .player1 {
+    border-radius: 20px;
+    background-color: pink;
+  }
+  
+  .player2 {
+    border-radius: 20px;
+    background-color: yellow;
+  }
+  
+  .div {
+    heigh: 30px;
+    weight: 30px;
+  }
