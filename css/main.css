@@ -1,22 +1,52 @@
-.board {
-    border: 1px solid;
-    height: 350px;
-    width: 370px;
-    display: flex;
-    flex-wrap: wrap; 
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ .board { 
+  padding: .5rem;
+  height: 540px;
+  width: 570px;
+  display: flex;
+  flex-wrap: wrap; 
+  position: absolute;
+  background-color: rgb(0, 174, 255);
+  border: 2px solid black;
+  align-items: center;
+
   }
   
-  .player1 {
-    border-radius: 20px;
-    background-color: pink;
+  .circle {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border: 1px solid black;
   }
   
-  .player2 {
-    border-radius: 20px;
-    background-color: yellow;
+ 
+  h1 {
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
   }
-  
-  .div {
-    heigh: 30px;
-    weight: 30px;
-  }
+
+button {
+    font-size: 3vmin;
+    font-weight: bold;
+    padding: 2vmin;
+    margin-top: 4vmin;
+    border: 1vmin solid blueviolet;
+    color: blueviolet;
+    border-radius: 2vmin;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover {
+  background-color: blueviolet;
+  color: white;
+}
