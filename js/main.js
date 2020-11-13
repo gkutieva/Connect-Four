@@ -1,9 +1,6 @@
 /*----- constants -----*/
 // players 
-const playerImgs = {
-    '1': "url(https://images.app.goo.gl/NFT7fwKAiMjPAASm7)",
-    '-1': "url(https://images.app.goo.gl/C19e8yo4FMjmYStZ8)",
-}
+
 const playerColors = {
     '1': 'purple',
     '-1': 'yellow',
@@ -69,7 +66,7 @@ function render() {
 
 // iterate to put the 4 winningCombos into the circles
 // to check if those winningCombos are in a winning array of combos.
-function boardCombos() {
+function getWinner() {
     for (var i = 0; i < winningCombos.length; i++) {
         let circle1 = circles[winningCombos[i][0]];
         let circle2 = circles[winningCombos[i][1]];
@@ -86,10 +83,10 @@ function boardCombos() {
     }
 }
 
-function getWinner() {
-
-}
-
+document.getElementById('replay').onclick = function() {
+    document.getElementById('button').innerHtml = "";
+    init();
+};
 
 
 // maybe add an audio
