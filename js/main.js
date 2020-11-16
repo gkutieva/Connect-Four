@@ -14,12 +14,12 @@ const winningCombos = [
 let turn;
 let winner;
 let board;
-
+let gameStatus // null , lose, win
 /*----- cached element references -----*/
 let button = document.querySelector('button');
 let message = document.querySelector('h4');
 const tdEls = document.querySelectorAll('#board td');
-
+const currentPlayer = document.querySelector('#current-payer');
 /*----- event listeners -----*/
 button.addEventListener('click', init);
 document.getElementById('board').addEventListener('click', handleClick);
@@ -42,7 +42,7 @@ function handleClick(event) {
     }
     if (validMove) {
         turn *= -1;
-        // winner = getWinner();
+        
         render();
     }
 }
@@ -55,15 +55,24 @@ function init() {
 }
 
 function render() {
+    button.style.visibility = gameStatus ? "visible" : "hidden";
     // iterate with forEach to display the imgs on the board
     tdEls.forEach((tdEl, idx) => {
         tdEl.style.backgroundColor = playerColors[board[idx]];
         // tdEl.style.backgroundImage = playerImgs[board[idx]];
+        // message for who's turn it is
+        // use if else if here
     });
+    if (winner) {
+        message.textContent = `Player ${winner > 0 ? 1 : 2} is the winner!`;
+        button.style.display = null;
+    } else if (!turn.includes(null)) {
+        message.textContent = "It's a tie"
+        button.style.display = null;
+    } else {
+        message.textContent = `Player ${turn > 0 ? 1 : 2}'s turn!`;
+    }  
 }
-// message for who's turn it is
-// use if else if here
-
 // iterate to put the 4 winningCombos into the circles
 // to check if those winningCombos are in a winning array of combos.
 function getWinner() {
@@ -81,14 +90,11 @@ function getWinner() {
             result.innerHtml = `Player Two WINS!!!`;
         }
     }
+    render();
 }
 
-document.getElementById('replay').onclick = function() {
-    document.getElementById('button').innerHtml = "";
-    init();
-};
 
 
-// maybe add an audio
+
 
 

@@ -11,10 +11,12 @@
   width: 570px;
   display: flex;
   flex-wrap: wrap; 
-  position: absolute;
   background-color: rgb(0, 174, 255);
   border: 2px solid black;
   align-items: center;
+  top: 4rem;
+  left: 50%;
+  transform: translate(60%);
 
   }
   
@@ -33,6 +35,15 @@
     text-align: center;
   }
 
+  .player-one {
+    background-color: purple;
+    border-radius: 15px;
+  }
+
+  .player-two {
+    border-radius: 15px;
+    background-color: yellow;
+  }
 button {
     font-size: 3vmin;
     font-weight: bold;
@@ -49,4 +60,8 @@ button {
 button:hover {
   background-color: blueviolet;
   color: white;
+}
+
+table, tr {
+  text-align: center;
 }
