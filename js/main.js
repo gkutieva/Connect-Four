@@ -17,7 +17,7 @@ let board;
 let gameStatus // null , lose, win
 /*----- cached element references -----*/
 let button = document.querySelector('button');
-let message = document.querySelector('h4');
+let message = document.querySelector('h3');
 const tdEls = document.querySelectorAll('#board td');
 const currentPlayer = document.querySelector('#current-payer');
 /*----- event listeners -----*/
@@ -66,11 +66,15 @@ function render() {
     if (winner) {
         message.textContent = `Player ${winner > 0 ? 1 : 2} is the winner!`;
         button.style.display = null;
-    } else if (!turn.includes(null)) {
-        message.textContent = "It's a tie"
-        button.style.display = null;
+        // figure out tie condition
+    // } else if (!turn.includes(null)) {
+    //     message.textContent = "It's a tie"
+    //     button.style.display = null;
     } else {
+        console.log(turn);
+
         message.textContent = `Player ${turn > 0 ? 1 : 2}'s turn!`;
+        
     }  
 }
 // iterate to put the 4 winningCombos into the circles
