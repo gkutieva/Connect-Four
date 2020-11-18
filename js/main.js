@@ -15,11 +15,13 @@ let turn;
 let winner;
 let board;
 let gameStatus // null , lose, win
+
 /*----- cached element references -----*/
 let button = document.querySelector('button');
 let message = document.querySelector('h3');
 const tdEls = document.querySelectorAll('#board td');
 const currentPlayer = document.querySelector('#current-payer');
+
 /*----- event listeners -----*/
 button.addEventListener('click', init);
 document.getElementById('board').addEventListener('click', handleClick);
@@ -42,7 +44,7 @@ function handleClick(event) {
     }
     if (validMove) {
         turn *= -1;
-        
+        winner = getWinner();
         render();
     }
 }
@@ -55,46 +57,33 @@ function init() {
 }
 
 function render() {
-    button.style.visibility = gameStatus ? "visible" : "hidden";
+    button.style.visibility = winner ? "visible" : "hidden";
     // iterate with forEach to display the imgs on the board
     tdEls.forEach((tdEl, idx) => {
         tdEl.style.backgroundColor = playerColors[board[idx]];
-        // tdEl.style.backgroundImage = playerImgs[board[idx]];
+
         // message for who's turn it is
         // use if else if here
     });
     if (winner) {
         message.textContent = `Player ${winner > 0 ? 1 : 2} is the winner!`;
         button.style.display = null;
-        // figure out tie condition
-    // } else if (!turn.includes(null)) {
-    //     message.textContent = "It's a tie"
-    //     button.style.display = null;
     } else {
-        console.log(turn);
-
         message.textContent = `Player ${turn > 0 ? 1 : 2}'s turn!`;
-        
-    }  
+    }
 }
 // iterate to put the 4 winningCombos into the circles
-// to check if those winningCombos are in a winning array of combos.
 function getWinner() {
     for (var i = 0; i < winningCombos.length; i++) {
-        let circle1 = circles[winningCombos[i][0]];
-        let circle2 = circles[winningCombos[i][1]];
-        let circle3 = circles[winningCombos[i][2]];
-        let circle4 = circles[winningCombos[i][3]];
-
+        let circle1 = board[winningCombos[i][0]];
+        let circle2 = board[winningCombos[i][1]];
+        let circle3 = board[winningCombos[i][2]];
+        let circle4 = board[winningCombos[i][3]];
+        let total = circle1 + circle2 + circle3 + circle4;
         // check if those winningCombos contain the circles for player 1 or player 2
-        if (circle1.classList.includes('player1') && circle2.classList.includes('player1') && circle3.classList.includes('player1') && circle4.classList.includes('player1')) {
-            // if it does contain the player1 then return Player1 wins!
-            result.innerHtml = `Player One WINS!!!`;
-        } else if (circle1.classList.includes('player2') && circle2.classList.includes('player2') && circle3.classList.includes('player2') && circle4.classList.includes('player2')) {
-            result.innerHtml = `Player Two WINS!!!`;
-        }
+        if (total === 4 || total === -4) return circle1;
     }
-    render();
+    return null;
 }
 
 
