@@ -6,7 +6,7 @@ The Connect 4 Board Game Rules are easy to understand. To win Connect Four, all 
 The game is over either when you or your friend reaches four in a row, or when all forty two slots are filled, ending in a stalemate. If you and your friend decide to play again, the loser typically goes first. 
 
 # SCREENSHOTS: 
-<img src="https://imgur.com/undefined" alt="Connect-Four">
+<img src="https://imgur.com/hbk7XI0" alt="Connect-Four"/>
 
 ## TECHNOLOGIES USED: 
 The launguages used in this game are HTML, CSS, JavaScript. 
