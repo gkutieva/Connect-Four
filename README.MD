@@ -12,7 +12,7 @@ The game is over either when you or your friend reaches four in a row, or when a
 The launguages used in this game are HTML, CSS, JavaScript. 
 
 # GETTING STARTED:  
-[click here to play the game]()
+[click here to play the game](https://gkutieva.github.io/Connect-Four/)
 
 ## NEXT STEPS: 
 * improving on the CSS 
